@@ -1,0 +1,7 @@
+{
+  "title": "LLM Bridge",
+  "description": "Localhost HTTP bridge that lets an external agent or script execute GE-Lua inside BeamNG.drive. Development tool - load on demand.",
+  "author": "sgtonion",
+  "version": "0.1.0",
+  "type": "mod"
+}

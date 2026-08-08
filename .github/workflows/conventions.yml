@@ -1,0 +1,28 @@
+# The only CI this repo can honestly run: its test suite is a live game.
+# This checks the mechanical half of CONTRIBUTING's review test — Lua that
+# parses, and knowledge-freshness stamps that exist. It cannot check that a
+# stamp is TRUE; that stays on the contributor ("what you ran, which build").
+name: conventions
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lua parses
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua5.1
+          find mods -name '*.lua' -print0 | xargs -0 -n1 luac5.1 -p
+      - name: Knowledge-freshness stamps present
+        run: |
+          fail=0
+          for f in .claude/skills/*/SKILL.md; do
+            grep -q "VERIFIED against BeamNG.drive v" "$f" \
+              || { echo "missing baseline stamp: $f"; fail=1; }
+          done
+          for f in references/beamng-editor/*.md; do
+            grep -q "Provenance:" "$f" \
+              || { echo "missing provenance header: $f"; fail=1; }
+          done
+          exit $fail

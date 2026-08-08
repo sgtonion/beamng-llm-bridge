@@ -1,0 +1,10 @@
+.claude/settings.local.json
+
+# private field notes — superseded by AGENTS.md + the skills, kept locally
+learnings/
+GOTCHAS.md
+Thumbs.db
+desktop.ini
+.DS_Store
+.idea/
+.vscode/

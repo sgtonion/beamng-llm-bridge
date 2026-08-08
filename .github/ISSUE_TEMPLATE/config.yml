@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions about BeamNG modding itself
+    url: https://documentation.beamng.com
+    about: Engine and modding questions unrelated to this repo belong with the official docs and the BeamNG forums.

@@ -1,0 +1,32 @@
+name: Rot report
+description: A documented fact no longer matches the live engine
+labels: [rot]
+body:
+  - type: input
+    id: build
+    attributes:
+      label: Game build
+      description: BeamNG.drive version where the fact broke
+      placeholder: v0.41.2.0
+    validations:
+      required: true
+  - type: input
+    id: claim
+    attributes:
+      label: The claim that broke
+      description: File and the stated fact
+      placeholder: ".claude/skills/new-mission/SKILL.md — missionTypeData.defaultLaps is required"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What you ran and what happened
+      description: The probe or steps, expected vs. actual, relevant beamng.log lines
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Corrected fact, if known
+      description: Optional — what the engine does now. A PR with an updated stamp is even better.
